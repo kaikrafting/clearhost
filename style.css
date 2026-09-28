@@ -1,0 +1,65 @@
+:root {
+  --ice: #eef5f4;
+  --water: #0b3b45;
+  --ink: #12262a;
+  --grass: #4f9a34;
+  --dirt: #7a5232;
+  --dirt-dark: #6a4529;
+  --stone: #c9d2cf;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ice: #0d1d20;
+    --water: #9fd6de;
+    --ink: #dbe8e6;
+    --stone: #2b3d40;
+  }
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: 1rem; }
+body {
+  margin: 0;
+  background: var(--ice);
+  color: var(--ink);
+  font: 1.0625rem/1.65 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--water); text-underline-offset: 3px; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--grass); outline-offset: 3px; }
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+
+header.top { padding: 1.5rem 0; }
+header.top .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.brand { font: 700 1.25rem "Bricolage Grotesque", system-ui, sans-serif; color: var(--water); text-decoration: none; }
+nav a { margin-left: 1.25rem; }
+
+h1, h2 { font-family: "Bricolage Grotesque", system-ui, sans-serif; color: var(--water); line-height: 1.1; }
+h1 { font-size: clamp(2.5rem, 8vw, 4.25rem); margin: 3rem 0 1rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; margin: 2.5rem 0 0.5rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+.lead { font-size: 1.25rem; max-width: 34rem; }
+
+.btn {
+  display: inline-block; margin-top: 1rem; padding: 0.7rem 1.25rem;
+  background: var(--water); color: var(--ice); font-weight: 600;
+  text-decoration: none; border-radius: 4px;
+}
+
+.terrain {
+  height: 96px; margin-top: 4rem;
+  background:
+    linear-gradient(var(--grass) 0 24px, transparent 24px),
+    repeating-conic-gradient(var(--dirt) 0 25%, var(--dirt-dark) 0 50%) 0 0 / 24px 24px;
+}
+
+section { padding-bottom: 1rem; }
+dl { margin: 1rem 0; }
+dt { font-weight: 600; margin-top: 1rem; }
+dd { margin: 0.15rem 0 0; }
+.todo { background: #fff3b0; color: #3b3200; padding: 0 0.25rem; border-radius: 2px; }
+
+footer { margin-top: 3rem; padding: 1.5rem 0 2rem; border-top: 2px solid var(--stone); font-size: 0.95rem; }
+ul { padding-left: 1.25rem; }
+.meta { font-size: 0.95rem; opacity: 0.8; }
